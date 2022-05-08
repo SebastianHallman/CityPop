@@ -1,13 +1,24 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { colorPalette } from '../misc/colors'
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export default function HomeScreen() {
+
+// Declare the navigation types
+
+type NavigationType = {
+  Home: undefined,
+  CitySearch: undefined,
+}
+
+type Props = NativeStackScreenProps<NavigationType, 'CitySearch'>;
+
+export default function HomeScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>CityPop</Text>
       <View style={styles.buttonGroup}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CitySearch')}>
           <Text style={styles.buttonText}>Search by city</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
@@ -25,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "F3E8EE",
+    backgroundColor: colorPalette.white,
   },
   
   title: {

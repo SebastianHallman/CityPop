@@ -3,6 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
+import CitySearch from './screens/CitySearch';
+
+
 
 // create the stack navigator
 
@@ -13,6 +16,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="CitySearch" component={CitySearch}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
