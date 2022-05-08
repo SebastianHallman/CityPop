@@ -21,7 +21,7 @@ export default function HomeScreen({ navigation }: Props) {
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CitySearch')}>
           <Text style={styles.buttonText}>Search by city</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CountrySearch')}>
           <Text style={styles.buttonText}>Search by country</Text>
         </TouchableOpacity>
       </View>
