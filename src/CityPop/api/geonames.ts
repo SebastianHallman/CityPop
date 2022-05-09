@@ -1,3 +1,5 @@
+import { API_NINJA_KEY } from './key';
+
 export async function searchCity(city: string ): Promise<any> {
     // Searches the API for a city
     var url = 'http://api.geonames.org/searchJSON?name=' + city + '&username=weknowit&maxRows=1&featureClass=P';
@@ -52,7 +54,7 @@ export async function getCountryCode(country: string): Promise<any> {
     // uses the ninja API to get the country code
     var url = 'https://api.api-ninjas.com/v1/country?name=' + country;
     try {
-        let res = await fetch(url, { headers: {'X-Api-Key': '9F1Nexz9X9wVINntlgP+8w==3WkmDg0dDROBpv9L'}});
+        let res = await fetch(url, { headers: {'X-Api-Key': API_NINJA_KEY}});
         let data = await res.json();
         var countryCode = data[0]['iso2'];
     
