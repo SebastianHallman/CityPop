@@ -17,11 +17,29 @@ export default function CountrySearch({ navigation } : Props) {
 
     
     async function search() {
-        setLoading(true);
-        var cc = await getCountryCode(country);
-        var cities = await getCitiesInCountry(country, cc)
-        setLoading(false);
-        navigation.navigate('CountryList', {cities: cities, country: country})
+        // check if the user has searched anything
+        if (country.trim() != "") {
+            
+            try {
+                setLoading(true);
+                var cc = await getCountryCode(country);
+                var cities = await getCitiesInCountry(country, cc)
+                
+                if (cities != undefined) {
+                    navigation.navigate('CountryList', {cities: cities, country: country})
+                    setLoading(false);    
+                } else {
+                    setLoading(false);
+                    alert("Could not find any cities in " + country)
+                }
+                
+            } catch (e) {
+                
+            }
+            
+        } else {
+            alert("Please search for a country")
+        }
         
     }
 

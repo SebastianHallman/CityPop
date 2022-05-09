@@ -16,12 +16,27 @@ export default function CitySearch({ navigation } : Props) {
     const [loading, setLoading] = useState(false); 
 
     
+
     async function search() {
-        setLoading(true);
-        var cityRes = await searchCity(city);
-        var popRes = await getCityPopulation(cityRes);
-        setLoading(false);
-        navigation.navigate("PopulationScreen", {city: cityRes, population: popRes});
+        // check if the user has searched anything
+        if (city.trim() != "") {
+            setLoading(true);
+            var cityRes = await searchCity(city);
+
+            // check if the search hits something
+            if (cityRes != undefined) {
+                var popRes = await getCityPopulation(cityRes);
+                setLoading(false);
+                navigation.navigate("PopulationScreen", {city: cityRes, population: popRes});
+            } else {
+                setLoading(false);
+                alert("Could not find " + city)
+            }
+            
+        } else {
+            setLoading(false);
+            alert("Please search for a city");
+        }
     }
 
   return (

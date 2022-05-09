@@ -11,7 +11,7 @@ type Props = NativeStackScreenProps<NavigationType, 'CountryList'>;
 export default function CountryList({ route, navigation }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Search results</Text>
+      <Text style={styles.title}>Cities in { route.params.country }</Text>
       <View style={styles.countryList}>
         <FlatList data={route.params.cities} renderItem={({ item }) => (
             <CountrySearchResult city={item.name} onPress={() => navigation.navigate('PopulationScreen', { city: item.name, population: item.population})}/>
