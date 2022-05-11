@@ -23,11 +23,11 @@ export default function CountrySearch({ navigation } : Props) {
             try {
                 setLoading(true);
                 var cc = await getCountryCode(country);
-                var cities = await getCitiesInCountry(country, cc)
-                
+                var cities = await getCitiesInCountry(country, cc);
+                var countryName = cities[0]['countryName'];
                 
                 if (cities != undefined) {
-                    navigation.navigate('CountryList', {cities: cities, country: country})
+                    navigation.navigate('CountryList', {cities: cities, country: countryName});
                     setLoading(false);    
                 } else {
                     setLoading(false);
