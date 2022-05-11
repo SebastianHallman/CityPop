@@ -48,7 +48,7 @@ export async function getCitiesInCountry(country: string, countryCode: string): 
         if (objects.length > 0) {
             return objects;
         } else {
-            throw new Error('Could not find any cities in ' + country);
+       
         }
     } catch (e) {
         
@@ -69,6 +69,7 @@ export async function getCountryCode(country: string): Promise<any> {
     
         return countryCode
     } catch (e) {
-        console.log("Error: " + e)
+        
     }
 }
+

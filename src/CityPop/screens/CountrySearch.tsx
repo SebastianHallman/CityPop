@@ -25,6 +25,7 @@ export default function CountrySearch({ navigation } : Props) {
                 var cc = await getCountryCode(country);
                 var cities = await getCitiesInCountry(country, cc)
                 
+                
                 if (cities != undefined) {
                     navigation.navigate('CountryList', {cities: cities, country: country})
                     setLoading(false);    

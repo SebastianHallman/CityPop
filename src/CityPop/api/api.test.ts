@@ -8,4 +8,14 @@ test('Get the country code from sweden', async () => {
     expect(cc).toBe("SE");
     
     
-}, 5000);
+});
+
+test('If the country is not fully written out, it should get the closest country alphabetically. This case: Afg -> afghanistan (AF)', async () => {
+
+    
+    const cc = await API.getCountryCode("Afg");
+    
+    expect(cc).toBe("AF");
+    
+    
+});
