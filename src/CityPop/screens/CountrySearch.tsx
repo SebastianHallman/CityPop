@@ -11,7 +11,7 @@ type Props = NativeStackScreenProps<NavigationType, 'CountrySearch'>;
 
 export default function CountrySearch({ navigation } : Props) {
 
-    // store the country input
+    // store the country input and loading state
     const [country, setCountry] = useState("");  
     const [loading, setLoading] = useState(false); 
 

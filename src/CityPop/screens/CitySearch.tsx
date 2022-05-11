@@ -11,7 +11,7 @@ type Props = NativeStackScreenProps<NavigationType, 'CitySearch'>;
 
 export default function CitySearch({ navigation } : Props) {
 
-    // store the city input
+    // store the city input and loading state
     const [city, setCity] = useState("");  
     const [loading, setLoading] = useState(false); 
 
